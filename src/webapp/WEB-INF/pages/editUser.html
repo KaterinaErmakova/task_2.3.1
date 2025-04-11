@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Edit User</title>
+</head>
+<body>
+<h1>Edit User</h1>
+<form action="/update_user" method="post">
+  <input type="hidden" name="id" th:value="${user.id}" />
+  <label>First Name: <input type="text" name="firstName" th:value="${user.firstName}" required /></label><br/>
+  <label>Second Name: <input type="text" name="secondName" th:value="${user.secondName}" required /></label><br/>
+  <label>Age: <input type="number" name="age" th:value="${user.age}" required /></label><br/>
+  <label>Car Model: <input type="text" name="model" th:value="${user.car?.model}" /></label><br/>
+  <label>Car Number: <input type="text" name="number" th:value="${user.car?.number}" /></label><br/>
+  <button type="submit">Update</button>
+</form>
+<a href="/">Back to list</a>
+</body>
+</html>
