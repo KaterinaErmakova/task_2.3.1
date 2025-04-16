@@ -2,17 +2,39 @@
 <html lang="en">
 <head>
     <title>Add User</title>
+    <meta charset="UTF-8">
 </head>
 <body>
 <h1>Add New User</h1>
-<form action="/save_user" method="post">
-    <label>First Name: <input type="text" name="firstName" required /></label><br/>
-    <label>Second Name: <input type="text" name="secondName" required /></label><br/>
-    <label>Age: <input type="number" name="age" required /></label><br/>
-    <label>Car Model: <input type="text" name="model" /></label><br/>
-    <label>Car Number: <input type="text" name="number" /></label><br/>
+<form id="addUserForm">
+    <label>First Name: <input type="text" id="firstName" required></label><br/>
+    <label>Second Name: <input type="text" id="secondName" required></label><br/>
+    <label>Age: <input type="number" id="age" required></label><br/>
+    <label>Phone Number: <input type="text" id="phoneNumber"></label><br/>
     <button type="submit">Save</button>
 </form>
 <a href="/">Back to list</a>
+
+<script>
+    document.getElementById('addUserForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const user = {
+            firstName: document.getElementById('firstName').value,
+            secondName: document.getElementById('secondName').value,
+            age: parseInt(document.getElementById('age').value),
+            phoneNumber: parseInt(document.getElementById('phoneNumber').value)
+        };
+
+        fetch('/save_user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        }).then(() => {
+            window.location.href = '/';
+        });
+    });
+</script>
 </body>
 </html>

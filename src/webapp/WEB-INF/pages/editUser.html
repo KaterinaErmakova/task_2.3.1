@@ -2,18 +2,42 @@
 <html lang="en">
 <head>
   <title>Edit User</title>
+  <meta charset="UTF-8">
 </head>
 <body>
 <h1>Edit User</h1>
-<form action="/update_user" method="post">
-  <input type="hidden" name="id" th:value="${user.id}" />
-  <label>First Name: <input type="text" name="firstName" th:value="${user.firstName}" required /></label><br/>
-  <label>Second Name: <input type="text" name="secondName" th:value="${user.secondName}" required /></label><br/>
-  <label>Age: <input type="number" name="age" th:value="${user.age}" required /></label><br/>
-  <label>Car Model: <input type="text" name="model" th:value="${user.car?.model}" /></label><br/>
-  <label>Car Number: <input type="text" name="number" th:value="${user.car?.number}" /></label><br/>
+<form id="editUserForm">
+  <input type="hidden" id="userId" th:value="${user.id}">
+  <label>First Name: <input type="text" id="firstName" th:value="${user.firstName}" required></label><br/>
+  <label>Second Name: <input type="text" id="secondName" th:value="${user.secondName}" required></label><br/>
+  <label>Age: <input type="number" id="age" th:value="${user.age}" required></label><br/>
+  <label>Phone Number: <input type="text" id="phoneNumber" th:value="${user.phoneNumber}"></label><br/>
   <button type="submit">Update</button>
 </form>
 <a href="/">Back to list</a>
+
+<script>
+  document.getElementById('editUserForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const userId = document.getElementById('userId').value;
+    const user = {
+      firstName: document.getElementById('firstName').value,
+      secondName: document.getElementById('secondName').value,
+      age: parseInt(document.getElementById('age').value),
+      phoneNumber: parseInt(document.getElementById('phoneNumber').value)
+    };
+
+    fetch(`/update_user?id=${userId}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    }).then(() => {
+      window.location.href = '/';
+    });
+  });
+</script>
 </body>
 </html>
+

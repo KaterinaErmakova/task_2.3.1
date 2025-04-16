@@ -16,47 +16,26 @@ public class User {
     @Column
     private String secondName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "car_id")
-    private Car car;
-
     @Column
     private byte age;
+
+    @Column
+    private long phoneNumber;
 
     public User() {
 
     }
 
 
-    public User(String firstName, String secondName, Car car, byte age) {
+    public User(String firstName, String secondName, byte age, long phoneNumber) {
         this.firstName = firstName;
         this.secondName = secondName;
-        this.car = car;
         this.age = age;
+        this.phoneNumber = phoneNumber;
     }
 
-    public Car getCar() {
-        return car;
-    }
-
-    public void setCar(Car car) {
-        this.car = car;
-    }
-
-    public byte getAge() {
-        return age;
-    }
-
-    public void setAge(byte age) {
-        this.age = age;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public int getId() {
+        return id;
     }
 
     public String getFirstName() {
@@ -67,13 +46,27 @@ public class User {
         this.firstName = firstName;
     }
 
-    public int getId() {
-        return id;
+    public String getSecondName() {
+        return secondName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
     }
 
+    public byte getAge() {
+        return age;
+    }
 
+    public void setAge(byte age) {
+        this.age = age;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

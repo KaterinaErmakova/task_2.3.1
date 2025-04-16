@@ -15,8 +15,7 @@
             <th>First Name</th>
             <th>Second Name</th>
             <th>Age</th>
-            <th>Car Model</th>
-            <th>Car Number</th>
+            <th>Phone Number</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -26,8 +25,7 @@
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.secondName}"></td>
             <td th:text="${user.age}"></td>
-            <td th:text="${user.car?.model}"></td>
-            <td th:text="${user.car?.number}"></td>
+            <td th:text="${user.phoneNumber}"></td>
             <td>
                 <form th:action="@{/edit_user}" method="get" style="display:inline;">
                     <input type="hidden" name="id" th:value="${user.id}" />
