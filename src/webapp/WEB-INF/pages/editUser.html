@@ -8,9 +8,9 @@
 <h1>Edit User</h1>
 <form id="editUserForm">
   <input type="hidden" id="userId" th:value="${user.id}">
-  <label>First Name: <input type="text" id="firstName" th:value="${user.firstName}" required></label><br/>
-  <label>Second Name: <input type="text" id="secondName" th:value="${user.secondName}" required></label><br/>
-  <label>Age: <input type="number" id="age" th:value="${user.age}" required></label><br/>
+  <label>First Name: <input type="text" id="firstName" th:value="${user.firstName}" ></label><br/>
+  <label>Second Name: <input type="text" id="secondName" th:value="${user.secondName}" ></label><br/>
+  <label>Age: <input type="number" id="age" th:value="${user.age}" ></label><br/>
   <label>Phone Number: <input type="text" id="phoneNumber" th:value="${user.phoneNumber}"></label><br/>
   <button type="submit">Update</button>
 </form>

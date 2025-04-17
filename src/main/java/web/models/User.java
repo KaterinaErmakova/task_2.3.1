@@ -20,14 +20,14 @@ public class User {
     private byte age;
 
     @Column
-    private long phoneNumber;
+    private Long phoneNumber;
 
     public User() {
 
     }
 
 
-    public User(String firstName, String secondName, byte age, long phoneNumber) {
+    public User(String firstName, String secondName, byte age, Long phoneNumber) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.age = age;
@@ -62,11 +62,11 @@ public class User {
         this.age = age;
     }
 
-    public long getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

@@ -21,9 +21,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public List<User> getAllUsers() {
-        if (userDao.getAllUsers() == null) {
-            return new ArrayList<>();
-        }
         return userDao.getAllUsers();
     }
 
